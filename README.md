@@ -3,6 +3,11 @@
 Diese Übung bietet eine schrittweise Anleitung zur Erstellung einer React-Anwendung, die funktionale Komponenten verwendet und verschiedene wichtige Konzepte wie Komponentenstruktur, Routing, Zustandsverwaltung und Modals umfasst. Durch die Umsetzung der verschiedenen Teile der Aufgabe sollen die Teilnehmer ein besseres Verständnis für die Verwendung funktionaler Komponenten in React-Anwendungen und die Entwicklung wiederverwendbarer Komponenten erlangen.
 
 Das React-Team empfiehlt die Verwendung funktionaler Komponenten, da sie eine einfachere und übersichtlichere Art und Weise bieten, React-Anwendungen zu erstellen. Folglich wird dieses Projekt auf funktionalen Komponenten basieren.
+
+## Bilder (MockUp)
+
+
+
 ## Teil 1 - Einrichtung
 
 1. Installation von [Visual Studio Code ](https://code.visualstudio.com/)
