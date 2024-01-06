@@ -5,8 +5,9 @@ Diese Übung bietet eine schrittweise Anleitung zur Erstellung einer React-Anwen
 Das React-Team empfiehlt die Verwendung funktionaler Komponenten, da sie eine einfachere und übersichtlichere Art und Weise bieten, React-Anwendungen zu erstellen. Folglich wird dieses Projekt auf funktionalen Komponenten basieren.
 
 ## Bilder (MockUp)
-![image info](Screenshot 2024-01-06 at 13.32.02.png)
-
+![picture](./mockup/MockUp1.png)
+![picture](./mockup/MockUp2.png)
+![picture](./mockup/MockUp3.png)
 
 ## Teil 1 - Einrichtung
 
