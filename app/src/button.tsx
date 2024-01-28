@@ -3,6 +3,7 @@ import React from "react";
 interface Props {
   border: string;
   color: string;
+  textColor: string;
   children?: React.ReactNode;
   height: string;
   onClick: () => void;
@@ -13,6 +14,7 @@ interface Props {
 const Button: React.FC<Props> = ({ 
     border,
     color,
+    textColor,
     children,
     height,
     onClick, 
@@ -29,9 +31,11 @@ const Button: React.FC<Props> = ({
          height,
          width
       }}
-    >
-    {children}
-    </button>
+    >  
+    <div style={{color: textColor}}>
+      {children}
+    </div>
+  </button>
   );
 }
 

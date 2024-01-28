@@ -28,29 +28,28 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-
         <h3>TestButtonComponent 1</h3>  
         <Button 
           border="none"
-          color="black"
+          color="Tomato"
+          textColor='yellow'
           height = "50px"
           onClick={() => setCount((count) => count + 1)}
           radius = "25%"
           width = "200px"
           children = {"count is " + count}
         />
-
         <h3>TestButtonComponent 2</h3>  
         <Button 
           border="none"
-          color="DarkBlue"
+          color="MediumSeaGreen"
+          textColor='black'
           height = "50px"
           onClick={() => setCount2((count2) => count2 + 1)}
           radius = "2%"
           width = "200px"
           children = {"count2 is " + count2}
         />
-
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
