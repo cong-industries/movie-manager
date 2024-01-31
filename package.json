@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "react-router-dom": "^6.21.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
