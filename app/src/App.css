@@ -1,42 +1,107 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Grundlegende Einstellungen */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #f5f5f7; /* Sehr helles Grau als Hintergrund */
+  color: #333; /* Dunkelgrau für Texte */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Container für die Karten, zentriert mit Abstand */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
+/* Stil der Karten */
 .card {
-  padding: 2em;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sanfter Schatten für Tiefe */
+  width: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.read-the-docs {
-  color: #888;
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Sorgt dafür, dass Bilder ihre Proportionen behalten */
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.card-genre {
+  margin: 0 0 15px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.card-description {
+  color: #444;
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Stil der Buttons */
+.button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin: 10px 5px;
+  font-weight: bold;
+}
+
+.button-red {
+  background-color: #bf616a; /* Rötlicher Ton für Löschen */
+}
+
+.button-blue {
+  background-color: #5e81ac; /* Bläulicher Ton für Bearbeiten */
+}
+
+.link, .button {
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+}
+
+.link {
+  color: #4c566a; /* Dunkelblau/Grau für Links */
+  padding: 10px 0;
+}
+
+/* Anpassungen für den Footer oder Header, falls vorhanden */
+.header, .footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #eceff4; /* Sehr helles Blau/Grau */
+  color: #2e3440; /* Fast schwarz */
+}
+
+/* Zusätzliche Anpassungen für Abstände und Ausrichtung */
+.margin-top {
+  margin-top: 20px;
+}
+
+.text-center {
+  text-align: center;
 }

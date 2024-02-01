@@ -1,42 +1,16 @@
-import React from "react";
-
-interface Props {
-  border: string;
-  color: string;
-  textColor: string;
-  children?: React.ReactNode;
-  height: string;
+// src/components/Button.tsx
+interface ButtonProps {
   onClick: () => void;
-  radius: string
-  width: string;
+  children: React.ReactNode;
+  color: string;
 }
 
-const Button: React.FC<Props> = ({ 
-    border,
-    color,
-    textColor,
-    children,
-    height,
-    onClick, 
-    radius,
-    width
-  }) => { 
+const Button = ({ onClick, children, color }: ButtonProps) => {
   return (
-    <button 
-      onClick={onClick}
-      style={{
-         backgroundColor: color,
-         border,
-         borderRadius: radius,
-         height,
-         width
-      }}
-    >  
-    <div style={{color: textColor}}>
+    <button onClick={onClick} style={{ backgroundColor: color }}>
       {children}
-    </div>
-  </button>
+    </button>
   );
-}
+};
 
 export default Button;
