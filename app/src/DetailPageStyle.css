@@ -1,0 +1,38 @@
+/* DetailPage.css */
+.detail-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .detail-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 20px;
+    /* Stellen Sie sicher, dass das Bild nicht verzerrt wird, aber die Höhe dynamisch bleibt */
+  }
+  
+  .detail-title {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .detail-genre, .detail-description {
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  

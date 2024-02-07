@@ -1,16 +1,15 @@
-// src/pages/DataList.tsx
 import React, { useEffect, useState } from 'react';
-import Card from './Card';
-import { Film } from './Film'; // Pfad anpassen
+import Card from '../components/Card';
+import { Film } from '../Interfaces/Film'; // Stellen Sie sicher, dass der Pfad korrekt ist
 
 const DataList = () => {
   const [data, setData] = useState<Film[]>([]);
 
   useEffect(() => {
     fetch('http://localhost:3000/filme')
-      .then((response) => response.json())
+      .then(response => response.json())
       .then((data: Film[]) => setData(data))
-      .catch((error) => console.error("Fehler beim Laden der Daten:", error));
+      .catch(error => console.error("Fehler beim Laden der Daten:", error));
   }, []);
 
   return (
@@ -18,6 +17,7 @@ const DataList = () => {
       {data.map((item) => (
         <Card
           key={item.id}
+          id={item.id} // Stellen Sie sicher, dass die ID hier übergeben wird
           name={item.name}
           imageUrl={item.image}
           onDelete={() => console.log('Löschen', item.id)}

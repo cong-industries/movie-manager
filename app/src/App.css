@@ -70,11 +70,11 @@ body, html {
 }
 
 .button-red {
-  background-color: #bf616a; /* Rötlicher Ton für Löschen */
+  background-color: #eaa0a7; /* Rötlicher Ton für Löschen */
 }
 
 .button-blue {
-  background-color: #5e81ac; /* Bläulicher Ton für Bearbeiten */
+  background-color: #c4daf4; /* Bläulicher Ton für Bearbeiten */
 }
 
 .link, .button {
