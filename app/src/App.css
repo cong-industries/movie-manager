@@ -1,42 +1,211 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Grundlegende Einstellungen */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #eeeeee; /* Sehr helles Grau als Hintergrund */
+    color: #333; /* Dunkelgrau für Texte */
+}
+
+/* Container für die Karten, zentriert mit Abstand */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+/* Stil der Karten */
+.card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sanfter Schatten für Tiefe */
+    width: 100vw;
+    max-width: 600px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card__inner {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.card__detailsButton {
+    transition: filter 0.2s ease-out;
+
+}
+
+.card img {
+    height: 100%;
+    max-width: 200px;
+    aspect-ratio: 0.75;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.2s ease-out;
+}
+
+.card__imageWrapper {
+    overflow: hidden;
+}
+
+.card__imageWrapper:hover + .card__details .card__detailsButton {
+    filter: brightness(85%);
+}
+
+.card img:hover {
+    transform: scale(1.1);
+}
+
+.card__details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.card-content {
+    padding: 20px;
+}
+
+.card-title {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 24px;
+}
+
+.card-genre {
+    margin: 0 0 15px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.card-description {
+    color: #444;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Stil der Buttons */
+.button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px 5px;
+    font-weight: bold;
+}
+
+button {
+    transition: filter 0.2s ease-out;
+}
+
+button:hover {
+    filter: brightness(85%);
+}
+
+.button-red {
+    background-color: #d55959;
+}
+
+.button-blue {
+    background-color: #c4daf4;
+}
+
+.link, .button {
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+}
+
+.link {
+    color: #4c566a; /* Dunkelblau/Grau für Links */
+    padding: 10px 0;
+}
+
+/* Anpassungen für den Footer oder Header, falls vorhanden */
+.header, .footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #eceff4; /* Sehr helles Blau/Grau */
+    color: #2e3440; /* Fast schwarz */
+}
+
+/* Zusätzliche Anpassungen für Abstände und Ausrichtung */
+.margin-top {
+    margin-top: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+/* EDIT MODAL */
+.editModal {
+    position: fixed;
+    animation: fadeIn 0.2s forwards;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+
+    }
+}
+
+.card__editForm {
+    background-color: #eeeeee;
+    border-radius: 5px;
+    width: 350px;
+    padding: 20px;
+}
+
+.card__editForm input {
+    background-color: #eeeeee;
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 5px;
+    outline: none !important;
+    color: #444;
+}
+
+.card__editForm .inputWrapper {
+    margin-bottom: 10px;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+    max-width: 500px;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    height: 250px;
+    width: 500px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.modalHeader {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
 }

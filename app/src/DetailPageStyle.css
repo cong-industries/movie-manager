@@ -1,0 +1,40 @@
+/* DetailPage.css */
+.detail-container {
+    padding: 20px;
+}
+
+.detail__inner {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.detail-container img {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 60px;
+}
+
+.detail-title {
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.detail-genre, .detail-description {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.back-link {
+    display: flex;
+    text-decoration: none;
+    margin: 20px auto 0;
+    justify-content: center;
+}
