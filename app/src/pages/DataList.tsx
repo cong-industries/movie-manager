@@ -107,9 +107,7 @@ const DataList = () => {
 
             <div className="navi">
                 <Button onClick={() => {
-
                     setisAddModalShown(true)
-
                 }} color="#8CD57A">Hinzufügen</Button>
             </div>
 

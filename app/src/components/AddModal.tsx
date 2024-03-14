@@ -18,17 +18,14 @@ const AddModal = ({closeModal, submitAddModal, addModalData}) => {
                         <label htmlFor="newName">Name</label>
                         <input name="newName" defaultValue={newName} onChange={value => setnewName(value.target.value)}/>
                     </div>
-
                     <div className="inputWrapper">
                         <label htmlFor="newImageurl">Bildurl</label>
                         <input name="newImageurl" defaultValue={newImageUrl} onChange={value => setNewImageUrl(value.target.value)}/>
                     </div>
-
                     <div className="inputWrapper">
                         <label htmlFor="newGenre">Genre</label>
                         <input name="newGenre" defaultValue={newGenre} onChange={value => setNewGenre(value.target.value)}/>
                     </div>
-
                     <div className="inputWrapper">
                         <label htmlFor="newDescription">Beschreibung</label>
                         <input name="newDescription" defaultValue={newDescription} onChange={value => setNewDescription(value.target.value)}/>
