@@ -2,17 +2,16 @@
 import React, {useState} from 'react';
 import Button from './Button';
 
-const EditModal = ({closeModal, submitEditModal, modalData}) => {
-    const [newName, setnewName] = useState(modalData.name)
-    const [newImageUrl, setNewImageUrl] = useState(modalData.imageUrl)
-    const [newGenre, setNewGenre] = useState(modalData.genre)
-    const [newDescription, setNewDescription] = useState(modalData.description)
+const AddModal = ({closeModal, submitAddModal, addModalData}) => {
+    const [newName, setnewName] = useState(addModalData.name)
+    const [newImageUrl, setNewImageUrl] = useState(addModalData.imageUrl)
+    const [newGenre, setNewGenre] = useState(addModalData.genre)
+    const [newDescription, setNewDescription] = useState(addModalData.description)
 
     return (
         <div className="editModal">
-
             <div className="card__editForm">
-                <div className="modalHeader">Bearbeiten:</div>
+                <div className="modalHeader">Neuer Film:</div>
 
                 <div>
                     <div className="inputWrapper">
@@ -37,12 +36,12 @@ const EditModal = ({closeModal, submitEditModal, modalData}) => {
                 </div>
 
                 <Button onClick={() => {
-                    submitEditModal(modalData.id, newName, newImageUrl, newGenre, newDescription)
+                    submitAddModal(addModalData.id, newName, newImageUrl, newGenre, newDescription)
                     closeModal()
-                }} color="#c4daf4">Bearbeiten</Button>
+                }} color="#8CD57A">Hinzufügen</Button>
             </div>
         </div>
     );
 };
 
-export default EditModal;
+export default AddModal;
