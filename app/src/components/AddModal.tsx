@@ -33,7 +33,7 @@ const AddModal = ({closeModal, submitAddModal, addModalData}) => {
                 </div>
 
                 <Button onClick={() => {
-                    submitAddModal(addModalData.id, newName, newImageUrl, newGenre, newDescription)
+                    submitAddModal(newName, newImageUrl, newGenre, newDescription)
                     closeModal()
                 }} color="#8CD57A">Hinzufügen</Button>
             </div>
