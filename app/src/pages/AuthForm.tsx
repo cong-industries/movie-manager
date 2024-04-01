@@ -3,22 +3,51 @@ import React, { useState } from 'react';
 const AuthForm: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [isLogin, setIsLogin] = useState(true); // Zustand um zwischen Login und Registrierung zu wechseln
+    const [isLogin, setIsLogin] = useState(true);
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
     const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (isLogin) {
             // Login Logik
-            console.log('Login mit', email, password);
+            const response = await fetch('http://localhost:3000/users?email=' + encodeURIComponent(email) + '&password=' + encodeURIComponent(password));
+            const users = await response.json();
+
+            if (users.length > 0) {
+                console.log('Erfolgreich eingeloggt:', users[0]);
+                // Weiterführende Logik hier einfügen, z.B. Weiterleitung oder Token-Speicherung
+            } else {
+                alert('Login fehlgeschlagen: Benutzer nicht gefunden oder Passwort falsch.');
+            }
         } else {
             // Registrierungs Logik
-            console.log('Registrierung mit', email, password);
+            // Zuerst prüfen, ob der Benutzer bereits existiert
+            const checkUser = await fetch('http://localhost:3000/users?email=' + encodeURIComponent(email));
+            const userExists = await checkUser.json();
+
+            if (userExists.length === 0) {
+                // Benutzer existiert nicht, also füge ihn hinzu
+                const response = await fetch('http://localhost:3000/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password }), // In der Praxis ein gehashtes Passwort speichern
+                });
+
+                if (response.ok) {
+                    console.log('Registrierung erfolgreich');
+                    // Weiterführende Logik hier einfügen
+                } else {
+                    alert('Registrierung fehlgeschlagen');
+                }
+            } else {
+                alert('Ein Benutzer mit dieser E-Mail existiert bereits.');
+            }
         }
     };
-
     return (
         <div className="auth-container">
             <form className="auth-form" onSubmit={handleSubmit}>

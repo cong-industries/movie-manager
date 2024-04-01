@@ -227,7 +227,7 @@ button:hover {
 }
 
 .search-input {
-    width: 100%;
+    width: 95%;
     /* Suchleiste nimmt die volle Breite ihres Containers ein */
     padding: 10px 15px;
     /* Fügt innen Platz für Text hinzu */

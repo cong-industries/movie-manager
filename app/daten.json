@@ -33,6 +33,11 @@
     {
       "username": "jane",
       "password": "secret456"
+    },
+    {
+      "id": "37f7",
+      "email": "test@test.de",
+      "password": "password"
     }
   ]
 }
