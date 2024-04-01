@@ -339,3 +339,26 @@ button:hover {
         padding: 1rem;
     }
 }
+
+
+.star-rating button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.star-rating .star {
+    color: gold;
+    font-size: 20px;
+}
+
+/* Passt die Farbe der Sterne basierend auf der Klasse des Button-Elements an */
+.star-rating button.on .star {
+    color: gold;
+    /* Farbe für aktive Sterne */
+}
+
+.star-rating button.off .star {
+    color: #ccc;
+    /* Farbe für inaktive Sterne */
+}

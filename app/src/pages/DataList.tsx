@@ -17,7 +17,9 @@ const DataList = () => {
             name: "",
             imageUrl: "",
             genre: "",
-            description: ""
+            description: "",
+            regisseur: "",
+            bewertung: 0
         }
     )
 
@@ -27,7 +29,9 @@ const DataList = () => {
             name: "",
             imageUrl: "",
             genre: "",
-            description: ""
+            description: "",
+            regisseur: "",
+            bewertung: 0
         }
     )
 
@@ -37,8 +41,22 @@ const DataList = () => {
             .then((data: Film[]) => setData(data))
             .catch(error => console.error("Fehler beim Laden der Daten:", error));
     }, []);
+    const handleUpdate = async (updatedFilm: Film) => {
+        try {
+            await fetch(`http://localhost:3000/filme/${updatedFilm.id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updatedFilm)
+            });
 
-    const submitEditModal = (filmId: string, name, imageLink, genre, description) => {
+            // Direktes Aktualisieren des Zustands ohne erneuten Fetch
+            setData(data.map(film => film.id === updatedFilm.id ? updatedFilm : film));
+        } catch (error) {
+            console.error("Fehler beim Aktualisieren der Daten:", error);
+        }
+    };
+
+    const submitEditModal = (filmId: string, name, imageLink, genre, description, reggiseur, bewertung) => {
         (async () => {
             // PUT request
             const requestOptions = {
@@ -49,7 +67,9 @@ const DataList = () => {
                     "image": imageLink,
                     "name": name,
                     "genre": genre,
-                    "beschreibung": description
+                    "beschreibung": description,
+                    "reggiseur": reggiseur,
+                    "bewertung": bewertung
                 })
             };
             await fetch('http://localhost:3000/filme/' + filmId, requestOptions).then(() => {
@@ -62,7 +82,7 @@ const DataList = () => {
         })();
     }
 
-    const createCard = (name, imageLink, genre, description) => {
+    const createCard = (name, imageLink, genre, description, reggiseur, bewertung) => {
         (async () => {
             await (async () => {
                 // POST request
@@ -74,7 +94,9 @@ const DataList = () => {
                         "image": imageLink,
                         "name": name,
                         "genre": genre,
-                        "beschreibung": description
+                        "beschreibung": description,
+                        "reggiseur": reggiseur,
+                        "bewertung": bewertung
                     })
                 };
                 await fetch('http://localhost:3000/filme', requestOptions).then(() => {
@@ -87,7 +109,6 @@ const DataList = () => {
             })();
         })();
     }
-
     const deleteCard = (filmId: string) => {
         (async () => {
             // DELETE request
@@ -124,6 +145,7 @@ const DataList = () => {
                 item.genre.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 item.reggiseur.toLowerCase().includes(searchQuery.toLowerCase())
             ).map((item) => (
+                console.log(item),
                 <Card
                     key={item.id}
                     id={item.id} // Stellen Sie sicher, dass die ID hier übergeben wird
@@ -131,6 +153,8 @@ const DataList = () => {
                     imageUrl={item.image}
                     beschreibung={item.beschreibung}
                     genre={item.genre}
+                    reggiseur={item.reggiseur}
+                    bewertung={item.bewertung}
                     onDelete={() => deleteCard(item.id)}
                     openEditModal={setModalShown}
                     fillEditModal={setModalData}

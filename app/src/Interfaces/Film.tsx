@@ -6,4 +6,5 @@ export interface Film {
   genre: string;
   beschreibung: string;
   reggiseur: string;
+  bewertung: number;
 }
