@@ -4,14 +4,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DataList from './pages/DataList';
 import './App.css';
 import DetailPage from './pages/DetailPage';
-import Login from './pages/AuthForm';
+import Auth from './pages/AuthForm';
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<DataList />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Auth />} />
         <Route path="/detail/:id" element={<DetailPage />} />
       </Routes>
     </Router>
