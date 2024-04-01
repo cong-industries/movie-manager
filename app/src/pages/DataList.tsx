@@ -119,7 +119,11 @@ const DataList = () => {
                 }} color="#8CD57A">Hinzufügen</Button>
             </div>
 
-            {data.filter(item => item.name.toLowerCase().includes(searchQuery.toLowerCase())).map((item) => (
+            {data.filter(item =>
+                item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                item.genre.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                item.reggiseur.toLowerCase().includes(searchQuery.toLowerCase())
+            ).map((item) => (
                 <Card
                     key={item.id}
                     id={item.id} // Stellen Sie sicher, dass die ID hier übergeben wird
