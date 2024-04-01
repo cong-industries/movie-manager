@@ -1,10 +1,13 @@
 /* Grundlegende Einstellungen */
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: #eeeeee; /* Sehr helles Grau als Hintergrund */
-    color: #333; /* Dunkelgrau für Texte */
+    background-color: #eeeeee;
+    /* Sehr helles Grau als Hintergrund */
+    color: #333;
+    /* Dunkelgrau für Texte */
 }
 
 /* Container für die Karten, zentriert mit Abstand */
@@ -23,7 +26,8 @@ body, html {
     background-color: #ffffff;
     border: none;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sanfter Schatten für Tiefe */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sanfter Schatten für Tiefe */
     width: 100vw;
     max-width: 600px;
     overflow: hidden;
@@ -56,7 +60,7 @@ body, html {
     overflow: hidden;
 }
 
-.card__imageWrapper:hover + .card__details .card__detailsButton {
+.card__imageWrapper:hover+.card__details .card__detailsButton {
     filter: brightness(85%);
 }
 
@@ -121,7 +125,8 @@ button:hover {
     background-color: #c4daf4;
 }
 
-.link, .button {
+.link,
+.button {
     text-align: center;
     text-decoration: none;
     display: block;
@@ -129,16 +134,20 @@ button:hover {
 }
 
 .link {
-    color: #4c566a; /* Dunkelblau/Grau für Links */
+    color: #4c566a;
+    /* Dunkelblau/Grau für Links */
     padding: 10px 0;
 }
 
 /* Anpassungen für den Footer oder Header, falls vorhanden */
-.header, .footer {
+.header,
+.footer {
     text-align: center;
     padding: 20px 0;
-    background-color: #eceff4; /* Sehr helles Blau/Grau */
-    color: #2e3440; /* Fast schwarz */
+    background-color: #eceff4;
+    /* Sehr helles Blau/Grau */
+    color: #2e3440;
+    /* Fast schwarz */
 }
 
 /* Zusätzliche Anpassungen für Abstände und Ausrichtung */
@@ -169,6 +178,7 @@ button:hover {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
 
@@ -208,4 +218,36 @@ button:hover {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 20px;
+}
+
+/* Suchleiste-Stil */
+.search-bar {
+    margin-bottom: 20px;
+    /* Fügt Abstand unter der Suchleiste hinzu */
+}
+
+.search-input {
+    width: 100%;
+    /* Suchleiste nimmt die volle Breite ihres Containers ein */
+    padding: 10px 15px;
+    /* Fügt innen Platz für Text hinzu */
+    font-size: 16px;
+    /* Setzt eine angenehme Schriftgröße */
+    border: 1px solid #cccccc;
+    /* Fügt einen subtilen Rahmen hinzu */
+    border-radius: 5px;
+    /* Rundet die Ecken leicht ab */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Fügt einen leichten Schatten für Tiefe hinzu */
+    transition: all 0.3s ease;
+    /* Fügt eine sanfte Übergangsanimation hinzu */
+}
+
+.search-input:focus {
+    outline: none;
+    /* Entfernt den Standard-Fokus-Rahmen */
+    border-color: #777777;
+    /* Ändert die Rahmenfarbe beim Fokussieren */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    /* Verstärkt den Schatten beim Fokussieren */
 }
