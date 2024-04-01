@@ -1,45 +1,45 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
 
 const AuthForm: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLogin, setIsLogin] = useState(true);
+    const navigate = useNavigate();
+    const { performLogin } = useAuth(); // Verwenden der performLogin-Funktion aus dem Context
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
     const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (isLogin) {
-            // Login Logik
-            const response = await fetch('http://localhost:3000/users?email=' + encodeURIComponent(email) + '&password=' + encodeURIComponent(password));
-            const users = await response.json();
 
-            if (users.length > 0) {
-                console.log('Erfolgreich eingeloggt:', users[0]);
-                // Weiterführende Logik hier einfügen, z.B. Weiterleitung oder Token-Speicherung
-            } else {
-                alert('Login fehlgeschlagen: Benutzer nicht gefunden oder Passwort falsch.');
+        if (isLogin) {
+            // Versuch, sich mit den eingegebenen Anmeldedaten anzumelden
+            try {
+                await performLogin(email, password, navigate); // Annahme: performLogin akzeptiert ein Benutzerobjekt und navigate
+            } catch (error) {
+                alert(error);
             }
         } else {
             // Registrierungs Logik
-            // Zuerst prüfen, ob der Benutzer bereits existiert
-            const checkUser = await fetch('http://localhost:3000/users?email=' + encodeURIComponent(email));
+            // Hier bleibt die Registrierungslogik, wie sie war
+            const checkUser = await fetch(`http://localhost:3000/users?email=${encodeURIComponent(email)}`);
             const userExists = await checkUser.json();
 
             if (userExists.length === 0) {
-                // Benutzer existiert nicht, also füge ihn hinzu
                 const response = await fetch('http://localhost:3000/users', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ email, password }), // In der Praxis ein gehashtes Passwort speichern
+                    body: JSON.stringify({ email, password }),
                 });
 
                 if (response.ok) {
                     console.log('Registrierung erfolgreich');
-                    // Weiterführende Logik hier einfügen
+                    navigate('/'); // Navigiere zur Startseite nach erfolgreicher Registrierung
                 } else {
                     alert('Registrierung fehlgeschlagen');
                 }
@@ -48,6 +48,7 @@ const AuthForm: React.FC = () => {
             }
         }
     };
+
     return (
         <div className="auth-container">
             <form className="auth-form" onSubmit={handleSubmit}>
