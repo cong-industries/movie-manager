@@ -1,12 +1,12 @@
 // src/pages/DetailPage.tsx
-import React, {useEffect, useState} from 'react';
-import {useParams, Link} from 'react-router-dom';
-import {Film} from '../Interfaces/Film'; // Stellen Sie sicher, dass der Pfad korrekt ist
+import React, { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { Film } from '../Interfaces/Film'; // Stellen Sie sicher, dass der Pfad korrekt ist
 import '../DetailPageStyle.css';
 import Button from "../components/Button.tsx";
 
 const DetailPage = () => {
-    const {id} = useParams<{ id: string }>();
+    const { id } = useParams<{ id: string }>();
     const [item, setItem] = useState<Film | null>(null);
 
     useEffect(() => {
@@ -23,11 +23,11 @@ const DetailPage = () => {
         <div className="detail-container">
             <div className="detail__inner">
                 <h2 className="detail-title">{item.name}</h2>
-                <img src={item.image} alt={item.name}/>
+                <img src={item.image} alt={item.name} />
                 <p className="detail-genre"><b>Genre:</b> {item.genre}</p>
                 <p className="detail-description"><b>Beschreibung:</b> {item.beschreibung}</p>
                 <Link to="/" className="back-link">
-                    <Button onClick={() => {}} color="#BABABA"> Zurück zur Liste</Button>
+                    <Button onClick={() => { }} color="#BABABA"> Zurück zur Liste</Button>
                 </Link>
             </div>
         </div>

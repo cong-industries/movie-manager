@@ -21,5 +21,15 @@
       "genre": "Science-Fiction, Abenteuer, Drama",
       "beschreibung": "Ein weiterer Film von Christopher Nolan, der sich mit Raumfahrt und der Erkundung des Universums befasst. Der Film folgt einer Gruppe von Astronauten auf einer Mission, um eine neue bewohnbare Welt zu finden. Der Film ist bekannt für seine beeindruckenden visuellen Effekte, seine emotionale Geschichte und seine wissenschaftliche Genauigkeit."
     }
+  ],
+  "users": [
+    {
+      "username": "john",
+      "password": "password123"
+    },
+    {
+      "username": "jane",
+      "password": "secret456"
+    }
   ]
 }
