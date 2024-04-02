@@ -17,9 +17,11 @@ interface CardProps {
 }
 
 const Card = ({ id, name, imageUrl, beschreibung, genre, reggiseur, bewertung, onDelete, openEditModal, fillEditModal }: CardProps) => {
-    const [rating, setRating] = useState(bewertung);
+    // Nutzen Sie den state, um die aktuelle Bewertung zu speichern
+    const [currentRating, setCurrentRating] = useState(bewertung);
 
     const handleRatingChange = (newRating: number) => {
+        // PATCH-Anfrage, um die Bewertung zu aktualisieren
         fetch(`http://localhost:3000/filme/${id}`, {
             method: 'PATCH',
             headers: {
@@ -33,8 +35,8 @@ const Card = ({ id, name, imageUrl, beschreibung, genre, reggiseur, bewertung, o
                 }
                 return response.json();
             })
-            .then(() => {
-                setRating(newRating); // Aktualisiert die lokale Zustandsvariable nur bei erfolgreichem API-Aufruf
+            .then(updatedItem => {
+                setCurrentRating(updatedItem.bewertung); // Aktualisieren Sie den Zustand mit der neuen Bewertung
                 console.log('Bewertung erfolgreich aktualisiert');
             })
             .catch(error => console.error("Fehler beim Aktualisieren der Bewertung:", error));
@@ -44,7 +46,7 @@ const Card = ({ id, name, imageUrl, beschreibung, genre, reggiseur, bewertung, o
         <div className="card">
             <div className="card-content">
                 <h3 className="card-title">{name}</h3>
-                <StarRating initialRating={rating} onRating={handleRatingChange} />
+                <StarRating initialRating={currentRating} onRating={handleRatingChange} />
                 <div className="card__inner">
                     <div className="card__imageWrapper">
                         <Link to={`/detail/${id}`}>
@@ -55,7 +57,7 @@ const Card = ({ id, name, imageUrl, beschreibung, genre, reggiseur, bewertung, o
                         <Link to={`/detail/${id}`}>
                             <Button color="#BABABA">Details</Button>
                         </Link>
-                        <Button onClick={() => fillEditModal({ id, name, imageUrl, genre, description: beschreibung, reggiseur, bewertung: rating })} color="#c4daf4">Bearbeiten</Button>
+                        <Button onClick={() => fillEditModal({ id, name, imageUrl, genre, description: beschreibung, reggiseur, bewertung: currentRating })} color="#c4daf4">Bearbeiten</Button>
                         <Button onClick={onDelete} color="#eaa0a7">Löschen</Button>
                     </div>
                 </div>

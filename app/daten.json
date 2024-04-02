@@ -6,7 +6,8 @@
       "name": "Inception",
       "genre": "Science-Fiction, Thriller",
       "beschreibung": "Dieser Science-Fiction-Thriller von Christopher Nolan ist ein visuell beeindruckender Film über Diebstahl von Träumen. Er bietet eine komplexe Handlung, fesselnde Charaktere und beeindruckende visuelle Effekte.",
-      "bewertung": 1
+      "reggiseur": "Christopher Nolan",
+      "bewertung": 2
     },
     {
       "id": "2",
@@ -24,7 +25,7 @@
       "genre": "Science-Fiction, Abenteuer, Drama",
       "beschreibung": "Ein weiterer Film von Christopher Nolan, der sich mit Raumfahrt und der Erkundung des Universums befasst. Der Film folgt einer Gruppe von Astronauten auf einer Mission, um eine neue bewohnbare Welt zu finden. Der Film ist bekannt für seine beeindruckenden visuellen Effekte, seine emotionale Geschichte und seine wissenschaftliche Genauigkeit.",
       "reggiseur": "Christopher Nolan",
-      "bewertung": 4
+      "bewertung": 5
     }
   ],
   "users": [

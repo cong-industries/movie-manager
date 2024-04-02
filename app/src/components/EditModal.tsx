@@ -9,12 +9,11 @@ const EditModal = ({ closeModal, submitEditModal, modalData }) => {
     const [newDescription, setNewDescription] = useState(modalData.description)
     const [newRegisseur, setNewRegisseur] = useState(modalData.regisseur)
     const [newRating, setNewRating] = useState(modalData.rating)
-
+    console.log("editmodal")
     return (
         <div className="editModal">
             <div className="card__editForm">
                 <div className="modalHeader">Bearbeiten:</div>
-
                 <div>
                     <div className="inputWrapper">
                         <label htmlFor="newName">Name</label>
@@ -43,7 +42,7 @@ const EditModal = ({ closeModal, submitEditModal, modalData }) => {
                 </div>
 
                 <Button onClick={() => {
-                    submitEditModal(modalData.id, newName, newImageUrl, newGenre, newDescription, newRegisseur)
+                    submitEditModal(modalData.id, newName, newImageUrl, newGenre, newDescription, newRegisseur, newRating)
                     closeModal()
                 }} color="#c4daf4">Bearbeiten</Button>
             </div>
