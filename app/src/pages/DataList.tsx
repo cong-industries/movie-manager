@@ -56,7 +56,7 @@ const DataList = () => {
         }
     };
 
-    const submitEditModal = (filmId: string, name, imageLink, genre, description, reggiseur, bewertung) => {
+    const submitEditModal = (filmId: string, name: string, imageLink: string, genre: string, description: string, reggiseur: string, bewertung: number) => {
         (async () => {
             // PUT request
             const requestOptions = {

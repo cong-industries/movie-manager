@@ -57,7 +57,19 @@ const Card = ({ id, name, imageUrl, beschreibung, genre, reggiseur, bewertung, o
                         <Link to={`/detail/${id}`}>
                             <Button color="#BABABA">Details</Button>
                         </Link>
-                        <Button onClick={() => fillEditModal({ id, name, imageUrl, genre, description: beschreibung, reggiseur, bewertung: currentRating })} color="#c4daf4">Bearbeiten</Button>
+                        <Button onClick={() => {
+                            fillEditModal({
+                                id: id,
+                                name: name,
+                                imageUrl: imageUrl,
+                                genre: genre,
+                                description: beschreibung,
+                                reggiseur: reggiseur,
+                                bewertung: bewertung
+                            });
+
+                            openEditModal(true);
+                        }}>Bearbeiten</Button>
                         <Button onClick={onDelete} color="#eaa0a7">Löschen</Button>
                     </div>
                 </div>
