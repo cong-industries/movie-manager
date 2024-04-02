@@ -33,7 +33,7 @@ html {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .card__inner {
@@ -47,17 +47,24 @@ html {
 
 }
 
-.card img {
-    height: 100%;
-    max-width: 200px;
-    aspect-ratio: 0.75;
-    object-fit: cover;
-    border-radius: 5px;
-    transition: transform 0.2s ease-out;
+.card__imageWrapper {
+    width: 100%;
+    /* Breite des Bildcontainers, um sicherzustellen, dass er die Breite der Karte ausfüllt */
+    /* Höhenbeschränkung entfernen, um das Bild in seinem ursprünglichen Seitenverhältnis zu zeigen */
+    display: flex;
+    justify-content: center;
+    /* Zentriert das Bild horizontal */
+    align-items: center;
+    /* Zentriert das Bild vertikal */
 }
 
-.card__imageWrapper {
-    overflow: hidden;
+.card img {
+    max-width: 50%;
+    /* Ermöglicht, dass das Bild bis zu 100% seiner Containerbreite einnimmt */
+    height: auto;
+    /* Setzt die Höhe auf 'auto', damit das Bild sein Seitenverhältnis beibehält */
+    object-fit: contain;
+    /* Passt das Bild im Container an, ohne es zu beschneiden */
 }
 
 .card__imageWrapper:hover+.card__details .card__detailsButton {
@@ -227,7 +234,7 @@ button:hover {
 }
 
 .search-input {
-    width: 100%;
+    width: 95%;
     /* Suchleiste nimmt die volle Breite ihres Containers ein */
     padding: 10px 15px;
     /* Fügt innen Platz für Text hinzu */
@@ -250,4 +257,108 @@ button:hover {
     /* Ändert die Rahmenfarbe beim Fokussieren */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     /* Verstärkt den Schatten beim Fokussieren */
+}
+
+/* Allgemeine und globale Stile bereits definiert in index.css */
+
+/* Anpassungen für Login- und Registrierungsformular */
+
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    /* Nutzung der global definierten Farbvariablen */
+}
+
+.auth-form {
+    padding: 2rem;
+    background: #FFF;
+    /* Hintergrundfarbe für das Formular */
+    border-radius: 10px;
+    /* Einklang mit den Karten-Stilen */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Leichter Schatten für Tiefe */
+    width: 100%;
+    max-width: 400px;
+    /* Bestimmt die maximale Breite des Formulars */
+    box-sizing: border-box;
+}
+
+.auth-form h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    width: 95%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    /* Leichter Rahmen */
+    margin: 0.5rem 0;
+    /* Abstand oben und unten für jedes Eingabefeld */
+}
+
+.btn-primary {
+    background-color: #646cff;
+    /* Nutzung der global definierten Button-Farbe */
+    color: #ffffff;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: #5a5fca;
+    /* Dunklere Farbe beim Hover für den Button */
+}
+
+.btn-secondary {
+    background: none;
+    color: #646cff;
+    border: 1px solid #646cff;
+    /* Rahmen im Stil der Link-Farbe */
+    margin-top: 0.5rem;
+}
+
+.btn-secondary:hover {
+    background-color: #f0f0f7;
+    /* Leichter Hintergrund beim Hover für den sekundären Button */
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+    .auth-form {
+        padding: 1rem;
+    }
+}
+
+
+.star-rating button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.star-rating .star {
+    color: gold;
+    font-size: 20px;
+}
+
+/* Passt die Farbe der Sterne basierend auf der Klasse des Button-Elements an */
+.star-rating button.on .star {
+    color: gold;
+    /* Farbe für aktive Sterne */
+}
+
+.star-rating button.off .star {
+    color: #ccc;
+    /* Farbe für inaktive Sterne */
 }
