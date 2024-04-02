@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Button from './Button';
 import StarRating from './StarRating';
 
@@ -16,7 +16,7 @@ interface CardProps {
     fillEditModal: (data: { id: string; name: string; imageUrl: string; genre: string; description: string; reggiseur: string, bewertung: number }) => void;
 }
 
-const Card = ({id, name, imageUrl, beschreibung, genre, reggiseur, bewertung, onDelete, openEditModal, fillEditModal}: CardProps) => {
+const Card = ({ id, name, imageUrl, beschreibung, genre, reggiseur, bewertung, onDelete, openEditModal, fillEditModal }: CardProps) => {
     // Nutzen Sie den state, um die aktuelle Bewertung zu speichern
     const [currentRating, setCurrentRating] = useState(bewertung);
 
@@ -27,7 +27,7 @@ const Card = ({id, name, imageUrl, beschreibung, genre, reggiseur, bewertung, on
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({bewertung: newRating}),
+            body: JSON.stringify({ bewertung: newRating }),
         })
             .then(response => {
                 if (!response.ok) {
@@ -46,11 +46,11 @@ const Card = ({id, name, imageUrl, beschreibung, genre, reggiseur, bewertung, on
         <div className="card">
             <div className="card-content">
                 <h3 className="card-title">{name}</h3>
-                <StarRating initialRating={currentRating} onRating={handleRatingChange}/>
+                <StarRating initialRating={currentRating} onRating={handleRatingChange} />
                 <div className="card__inner">
                     <div className="card__imageWrapper">
                         <Link to={`/detail/${id}`}>
-                            <img src={imageUrl} alt={name}/>
+                            <img src={imageUrl} alt={name} />
                         </Link>
                     </div>
                     <div className="card__details">
@@ -58,9 +58,18 @@ const Card = ({id, name, imageUrl, beschreibung, genre, reggiseur, bewertung, on
                             <Button color="#BABABA">Details</Button>
                         </Link>
                         <Button onClick={() => {
-                            fillEditModal({id, name, imageUrl, genre, description: beschreibung, reggiseur, bewertung: currentRating})
+                            fillEditModal({
+                                id: id,
+                                name: name,
+                                imageUrl: imageUrl,
+                                genre: genre,
+                                description: beschreibung,
+                                reggiseur: reggiseur,
+                                bewertung: bewertung
+                            });
+
                             openEditModal(true);
-                        }} color="#c4daf4">Bearbeiten</Button>
+                        }}>Bearbeiten</Button>
                         <Button onClick={onDelete} color="#eaa0a7">Löschen</Button>
                     </div>
                 </div>
