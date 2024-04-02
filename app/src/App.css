@@ -48,24 +48,18 @@ html {
 }
 
 .card__imageWrapper {
-    width: 100%;
-    /* Breite des Bildcontainers, um sicherzustellen, dass er die Breite der Karte ausfüllt */
-    /* Höhenbeschränkung entfernen, um das Bild in seinem ursprünglichen Seitenverhältnis zu zeigen */
-    display: flex;
-    justify-content: center;
-    /* Zentriert das Bild horizontal */
-    align-items: center;
-    /* Zentriert das Bild vertikal */
+    overflow: hidden;
 }
 
 .card img {
-    max-width: 50%;
-    /* Ermöglicht, dass das Bild bis zu 100% seiner Containerbreite einnimmt */
-    height: auto;
-    /* Setzt die Höhe auf 'auto', damit das Bild sein Seitenverhältnis beibehält */
-    object-fit: contain;
-    /* Passt das Bild im Container an, ohne es zu beschneiden */
+    height: 100%;
+    max-width: 200px;
+    aspect-ratio: 0.75;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.2s ease-out;
 }
+
 
 .card__imageWrapper:hover+.card__details .card__detailsButton {
     filter: brightness(85%);
