@@ -6,8 +6,7 @@
       "name": "Inception",
       "genre": "Science-Fiction, Thriller",
       "beschreibung": "Dieser Science-Fiction-Thriller von Christopher Nolan ist ein visuell beeindruckender Film über Diebstahl von Träumen. Er bietet eine komplexe Handlung, fesselnde Charaktere und beeindruckende visuelle Effekte.",
-      "reggiseur": "Christopher Nolan",
-      "bewertung": 2
+      "bewertung": "1"
     },
     {
       "id": "2",
@@ -47,6 +46,11 @@
     {
       "id": "be8e",
       "email": "cong@test.de",
+      "password": "test"
+    },
+    {
+      "id": "f92d",
+      "email": "marcel@test.de",
       "password": "test"
     }
   ]
